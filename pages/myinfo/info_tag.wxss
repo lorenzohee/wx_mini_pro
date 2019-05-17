@@ -1,0 +1,31 @@
+/* client/pages/myinfo/info_tag.wxss */
+.main{
+  color: #555;
+  margin: 0 10px;
+}
+
+text{
+  display: block;
+  margin: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.tags{
+  margin: 10px;
+}
+
+.tag{
+  display: inline-block;
+  color: #00b894;
+  border: 1px solid #00b894;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  padding: 0 12px;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+.tag.selected{
+  background: #00b894;
+  color: white;
+}

@@ -1,0 +1,50 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/demand/demandlist",
+    "pages/demand/demanddetail",
+    "pages/demand/demandfavorite",
+    "pages/myinfo/personinfo",
+    "pages/myinfo/info_nickname",
+    "pages/myinfo/info_tag"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "创新合伙人",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#707070",
+    "selectedColor": "#1296db",
+    "backgroundColor": "#F6F6F6",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/demand/demandlist",
+        "text": "需求",
+        "iconPath": "./assets/images/app.png",
+        "selectedIconPath": "./assets/images/app_selected.png"
+      },
+      {
+        "pagePath": "pages/demand/demandfavorite",
+        "text": "我的收藏",
+        "iconPath": "./assets/images/favoriteicon.png",
+        "selectedIconPath": "./assets/images/favoriteicon_selected.png"
+      },
+      {
+        "pagePath": "pages/myinfo/personinfo",
+        "text": "个人信息",
+        "iconPath": "./assets/images/my.png",
+        "selectedIconPath": "./assets/images/my_selected.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true,
+  "sitemapLocation": "sitemap.json"
+}

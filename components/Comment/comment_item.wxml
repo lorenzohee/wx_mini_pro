@@ -1,0 +1,27 @@
+<!--components/Comment/comment_item.wxml-->
+<import src="../../vendor/wxParse/wxParse.wxml"/>
+<view class='comment_item'>
+      <view class='comment_avatar'>
+        <image src='{{comment.avatar_url}}'></image>
+      </view>
+      <view class='comment_item_content'>
+        <view class='comment_top'>
+          <text class='user_name'>{{comment.user_name}}</text>
+          <view><text class='reply frm' catchtap='showCommentForm'>回复</text></view>
+        </view>
+        <view class='comment_bottom'>
+          <template is="wxParse" data="{{wxParseData:content.nodes}}"/>
+        </view>
+        <view class='comment_item' wx:for='{{comment.child}}' wx:key='id'>
+          <view class='comment_avatar'>
+            <image src='{{item.avatar_url}}'></image>
+          </view>
+          <view class='comment_item_content'>
+            <view class='comment_top'>
+              <text class='user_name'>{{item.user_name}}</text>
+            </view>
+            <view class='comment_bottom'>{{item.body}}</view>
+          </view>
+        </view>
+      </view>
+</view>

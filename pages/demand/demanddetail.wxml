@@ -1,0 +1,28 @@
+<!--client/pages/demand/demanddetail.wxml-->
+<import src="../../vendor/wxParse/wxParse.wxml"/>
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-article">
+      <view class="weui-article__h1">
+        <view class='article_title_item article_title_text'>
+          {{demand.title}}
+        </view>
+        <view class='article_title_item article_title_img'>
+          <image src='../../assets/images/star.png' wx:if='{{!demand.isFavorite}}' bindtap='starDemand' data-demandid="{{demand.id}}"></image>
+          <image src='../../assets/images/star_selected.png' wx:if='{{demand.isFavorite}}' bindtap='unstarDemand' data-demandid="{{demand.id}}"></image>
+        </view>
+      </view>
+      <view class="weui-article__h3" style='color: #555; font-size: 13px;'><span style='color: #78a5f1'>{{demand.username}}</span>  发布于  <span>{{demand.created_at}}</span></view>
+      <view class="weui-article__section">
+        <view class="weui-article__p" style='text-align: justify'>
+          <template is="wxParse" data="{{wxParseData:content.nodes}}"/>
+        </view>
+      </view>
+    </view>
+    <comment id="comment"
+      articleId='{{demand.id}}'
+      comments='{{demand.comments}}'
+      bind:cancelEvent="_cancelEvent"  
+      bind:confirmEvent="_confirmEvent"></comment>
+  </view>
+</view>

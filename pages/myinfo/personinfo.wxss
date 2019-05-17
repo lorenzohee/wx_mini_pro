@@ -1,0 +1,31 @@
+/* pages/myinfo/personinfo.wxss */
+.user_img{
+  text-align: center;
+  padding: 10px 0;
+}
+
+.user_img .image{
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.user_body view{
+  margin: 5px 10px;
+}
+
+.user_title{
+  text-align: center;
+  color: cadetblue;
+}
+
+.tag_item{
+  font-size: 13px;
+  display: inline-block;
+  background: salmon;
+  border-radius: 3px;
+  margin: 5px;
+  padding: 2px 5px;
+}

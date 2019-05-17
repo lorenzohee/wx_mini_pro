@@ -1,0 +1,7 @@
+<!--index.wxml-->
+<view class="container">
+  <image src='../../assets/images/firstpage.jpeg' class='firstpage'></image>
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" type='primary' open-type="getUserInfo" bindgetuserinfo="getUserInfo">登录</button>
+    </view>
+</view>

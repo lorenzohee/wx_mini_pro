@@ -1,0 +1,16 @@
+<!--pages/demand/demandlist.wxml-->
+<view class='page'>
+  <view wx:for='{{demands}}' wx:key='id' class='touch-item {{item.isTouchMove ? "touch-move-active" : ""}}' data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove">
+    <view class='content index_item'>
+      <view class='item_status'>
+        <image src='{{ item.user_avatar }}'></image>
+      </view>
+      <navigator url='./demanddetail?id={{item.id}}' class='item_title'>{{item.title}}</navigator>
+      <view class='item_favore'>
+        <image src='../../assets/images/star.png' wx:if='{{!item.isFavorite}}' bindtap='starDemand' data-demandid="{{item.id}}"></image>
+        <image src='../../assets/images/star_selected.png' wx:if='{{item.isFavorite}}' bindtap='unstarDemand' data-demandid="{{item.id}}"></image>
+      </view>
+    </view>
+    <view class="del" catchtap="del" data-index="{{index}}">删除</view>
+  </view>
+</view>

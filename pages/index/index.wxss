@@ -1,0 +1,14 @@
+/**index.wxss**/
+.firstpage{
+  width: 100%;
+  height: 100vh;
+}
+
+.userinfo{
+  position: fixed;
+  bottom: 20px;
+}
+
+button{
+  width: 200px;
+}
