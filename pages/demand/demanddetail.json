@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "comment": "../../components/Comment/comment"
+    "comment": "../../components/Comment/comment",
+    "cu-custom": "/vendor/colorui/components/cu-custom"
   }
 }

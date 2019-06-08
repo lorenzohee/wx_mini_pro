@@ -3,14 +3,16 @@
  */
 
 // 此处主机域名修改成服务器的域名
-var host = 'http://10.135.106.152:9000';
+var host = 'https://hope.haier.com/hope_sso';
+
+var service_add = 'https://hope.haier.com/agent_web_test';
 
 var config = {
 
     // 下面的地址配合云端 Demo 工作
     service: {
         host,
-
+        service_add,
         // 登录地址，用于建立会话
         loginUrl: `${host}/weapp/login`,
 

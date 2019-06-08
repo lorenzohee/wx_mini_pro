@@ -1,7 +1,5 @@
 /* components/Comment/comment.wxss */
-.comment_main{
-  background:#dfdfdf;
-}
+
 .comment_header{
   font-size:13px;
   padding:10px 0;
@@ -105,4 +103,7 @@
   transform-origin: 0 0;
   -webkit-transform: scaleX(0.5);
   transform: scaleX(0.5);
+}
+.cu-bar .action {
+  font-size: 30rpx;
 }

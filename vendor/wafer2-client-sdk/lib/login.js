@@ -40,7 +40,6 @@ const defaultOptions = {
     fail: noop,
     loginUrl: null,
 }
-
 /**
  * @method
  * 进行服务器登录，以获得登录会话
@@ -72,27 +71,33 @@ function login (opts) {
             [constants.WX_HEADER_IV]: loginResult.iv
         }
 
+        var postData = {
+          user_info: loginResult.userInfo,
+          js_code: loginResult.code,
+          appid: 'wx64c6c3ff48d1b425'
+        }
         // 请求服务器登录地址，获得会话信息
         wx.request({
             url: opts.loginUrl,
             header: header,
             method: opts.method,
-            success (result) {
-                const data = result.data;
+            data: postData,
+            success(result) {
+              const data = result.data;
 
-                if (!data || data.code !== 0 || !data.data) {
-                    return opts.fail(new Error(`响应错误，${JSON.stringify(data)}`))
-                }
+              if (!data) {
+                return opts.fail(new Error(`用户未登录过，请先使用 login() 登录`))
+              }
 
-                const res = data.data
+              const res = data
 
-                if (!res || !res.access_token) {
-                    return opts.fail(new Error(`登录失败(${data.error})：${data.message}`))
-                }
+              if (!res || !res.token) {
+                return opts.fail(new Error(`登录失败(${data.error})：${data.message}`))
+              }
 
                 // 成功地响应会话信息
-                Session.set(res.access_token)
-                opts.success(res.access_token)
+              Session.set(res.token)
+              opts.success(res.token)
             },
             fail (err) {
                 console.error('登录失败，可能是网络错误或者服务器发生异常')
@@ -103,11 +108,10 @@ function login (opts) {
 }
 
 /**
+ * TODO
  * @method
  * 只通过 wx.login 的 code 进行登录
- * 已经登录过的用户，只需要用 code 换取 openid，从数据库中查询出来即可
- * 无需每次都使用 wx.getUserInfo 去获取用户信息
- * 后端 Wafer SDK 需配合 1.4.x 及以上版本
+ * 已经登录过的用户，只需要用 code 获取用户的个人信息即可
  * 
  * @param {Object}   opts           登录配置
  * @param {string}   opts.loginUrl  登录使用的 URL，服务器应该在这个 URL 上处理登录请求，建议配合服务端 SDK 使用
@@ -128,12 +132,13 @@ function loginWithCode (opts) {
             const header = {
                 [constants.WX_HEADER_CODE]: loginResult.code
             }
-    
+
             // 请求服务器登录地址，获得会话信息
             wx.request({
                 url: opts.loginUrl,
                 header: header,
                 method: opts.method,
+                data: postData,
                 success (result) {
                     const data = result.data;
     

@@ -9,13 +9,15 @@ Page({
   data: {
     countries: ["male", "female"],
     countryIndex: 0,
+    userInfo: null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.data.userInfo = app.globalData.userInfo;
+    this.setData(this.data)
   },
 
   /**

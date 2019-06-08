@@ -7,10 +7,13 @@ Page({
    * 页面的初始数据
    */
   data: {
+    StatusBar: app.globalData.StatusBar,
+    CustomBar: app.globalData.CustomBar,
     items: [],
     startX: 0, //开始坐标
     startY: 0,
-    pageNum: 1
+    pageNum: 1,
+    searchStr: ''
   },
 
   /**
@@ -62,6 +65,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    return false;
     this.setData({
       pageNum: this.data.pageNum+1
     });
@@ -73,6 +77,14 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  searchDemand: function(e){
+    var that = this;
+    var searchStr = e.currentTarget.dataset.searchtype
+    that.setData({
+      searchStr: searchStr
+    })
   },
 
   getDemandList: function(callback){
@@ -99,10 +111,10 @@ Page({
     var that = this,
       id = e.currentTarget.dataset.demandid;
     var demandService = new DemandService();
-    demandService.starDemand(id, 3, function (result) {
+    demandService.starDemand(id, function (result) {
       that.data.demands.forEach(function (v, i) {
         if (v.id == id) {
-          v.isFavorite = true
+          v.favorite_id = result.id;
           return false
         }
       })
@@ -117,12 +129,12 @@ Page({
   //star Demand
   unstarDemand: function (e) {
     var that = this,
-      id = e.currentTarget.dataset.demandid;
+      id = e.currentTarget.dataset.favoriteid;
     var demandService = new DemandService();
-    demandService.starDemand(id, 3, function (result) {
+    demandService.unStarDemand(id, function (result) {
       that.data.demands.forEach(function (v, i) {
-        if (v.id == id) {
-          v.isFavorite = false
+        if (v.id == result.favoritable_id) {
+          v.favorite_id = null
           return false
         }
       })

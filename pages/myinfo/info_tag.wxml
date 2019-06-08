@@ -2,6 +2,6 @@
 <view class='main' wx:for="{{tagGroups}}">
     <text>{{item.title}}</text>
     <view class='techarea tags'>
-      <view wx:for="{{item.tags}}" wx:for-item="tag" class='tag {{tag.selected? "selected": "123"}}' bindtap="triggerTag" data-text="{{tag.title}}">{{tag.title}}</view>
+      <view wx:for="{{item.tags}}" wx:key="{{tag.title}}" wx:for-item="tag" class='tag {{tag.selected? "selected": "123"}}' bindtap="triggerTag" data-text="{{tag.title}}">{{tag.title}}</view>
     </view>
 </view>

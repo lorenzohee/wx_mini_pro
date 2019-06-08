@@ -95,10 +95,10 @@ Page({
     var that = this,
       id = e.currentTarget.dataset.demandid;
     var demandService = new DemandService();
-    demandService.starDemand(id, 3, function (result) {
-      that.data.demand.isFavorite = true;
+    demandService.starDemand(id, function (result) {
+      that.data.demand.favorite_id = result.id;
       wx.showToast({
-        title: '收藏成功'
+        title: '关注成功'
       })
       that.setData({
         demand: that.data.demand
@@ -108,12 +108,12 @@ Page({
   //star Demand
   unstarDemand: function (e) {
     var that = this,
-      id = e.currentTarget.dataset.demandid;
+      id = e.currentTarget.dataset.favoriteid;
     var demandService = new DemandService();
-    demandService.starDemand(id, 3, function (result) {
-      that.data.demand.isFavorite = false;
+    demandService.unStarDemand(id, function (result) {
+      that.data.demand.favorite_id = null;
       wx.showToast({
-        title: '取消成功'
+        title: '取消关注成功'
       })
       that.setData({
         demand: that.data.demand

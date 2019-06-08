@@ -9,11 +9,14 @@
     "pages/myinfo/info_tag"
   ],
   "window": {
-    "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "创新合伙人",
-    "navigationBarTextStyle": "black"
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "white"
+  },
+  "usingComponents": {
+    "cu-custom": "/vendor/colorui/components/cu-custom"
   },
   "tabBar": {
     "color": "#707070",

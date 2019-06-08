@@ -14,6 +14,10 @@ Component({
     }
   },
 
+  options: {
+    styleIsolation: 'apply-shared'
+  },
+
   /**
    * 组件的初始数据
    */
@@ -26,7 +30,6 @@ Component({
       type: 'child', // 关联的目标节点应为子节点
       linked: function (target) {
         // 每次有custom-li被插入时执行，target是该节点实例对象，触发在该节点attached生命周期之后
-        console.log('comment: '+target.data)
       },
       linkChanged: function (target) {
         // 每次有custom-li被移动后执行，target是该节点实例对象，触发在该节点moved生命周期之后
@@ -41,10 +44,8 @@ Component({
    */
   methods: {
     showCommentForm(e){
-      var replyId = e.currentTarget.dataset.replyuserid;
       var replyCommentId = e.currentTarget.dataset.replycomment;
       this.setData({
-        replyId: replyId,
         replyCommentId: replyCommentId,
         isFormShow: !this.data.isFormShow
       })
@@ -53,7 +54,6 @@ Component({
     //隐藏弹框
     hideDialog() {
       this.setData({
-        replyId: '',
         replyCommentId: '',
         isFormShow: !this.data.isFormShow
       })
@@ -81,17 +81,25 @@ Component({
     formSubmit: function (e) {
       var that = this;
       var formData = e.detail.value;
+      if(formData.content==''){
+        wx.showToast({
+          title: '请填写留言内容',
+          icon: 'none',
+          duration: 2000
+        })
+        // return false
+        formData.content = '小程序测试专用'
+      }
       formData.articleId = this.data.articleId;
-      formData.replyId = this.data.replyId;
       formData.replyCommentId = this.data.replyCommentId;
       var commentService = new CommentService();
       commentService.createComment(formData, function(result){
-        if (undefined === result.replyCommentId || '' === result.replyCommentId){
+        if (undefined === result.parent_id || '' === result.parent_id || null === result.parent_id){
           that.data.comments = [result].concat(that.data.comments || [])
         }else{
           that.data.comments.forEach(function(v, i){
-            if (v.id == result.replyCommentId){
-              v.children = [result].concat(v.children || []);
+            if (v.id == result.parent_id){
+              v.comments = [result].concat(v.comments || []);
               return false;
             }
           })

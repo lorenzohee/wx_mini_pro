@@ -1,8 +1,8 @@
 <!--components/Comment/comment.wxml-->
 <view class='comment_main'>
   <view class='comment_header'>
-    <view class='comment_fl'>评论({{comments.length}})</view>
-    <view class='comment_fr comment_create_btn weui-cell weui-cell_link' data-replyuserid='' catchtap='showCommentForm'>写留言</view>
+    <view class='comment_fl'>留言({{comments.length}})</view>
+    <view class='comment_fr comment_create_btn weui-cell weui-cell_link' data-replyuserid='' data-replycomment='' catchtap='showCommentForm'>写留言</view>
   </view>
   <view class='comment_body'>
     <block wx:for='{{comments}}' wx:key='id'> 
@@ -12,18 +12,16 @@
     </block>
   </view>
 </view>
-<view class='comment_form_container' hidden="{{!isFormShow}}">
-    <view class='wx-mask'></view>
-    <view class='wx-dialog'>
-        <view class='wx-dialog-title'>发表评论</view>
-        <form bindsubmit="formSubmit" bindreset="formReset">
-          <view class='wx-dialog-content'>
-            <textarea name='content' class="weui-textarea" placeholder="请输入评论内容" style="height: 3.3em; text-align:left"></textarea>
-          </view>
-          <view class='wx-dialog-footer'>
-            <button class='wx-dialog-btn' formType="reset">取消</button>
-            <button class='wx-dialog-btn' formType="submit">发表</button>
-          </view>
-        </form>
-    </view>
+<view class="cu-modal bottom-modal  {{isFormShow==true?'show':''}}">
+  <view class="cu-dialog">
+    <form bindsubmit="formSubmit" bindreset="formReset">
+      <view class="cu-bar bg-white">
+        <button class="action text-green" formType="submit">发表</button>
+        <button class="action text-blue" formType="reset">取消</button>
+      </view>
+      <view class="padding-xl">
+        <textarea name='content' class="weui-textarea" placeholder="请输入留言内容" style="height: 3.3em; text-align:left"></textarea>
+      </view>
+    </form>
+  </view>
 </view>

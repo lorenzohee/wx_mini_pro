@@ -1,21 +1,6 @@
 /* client/pages/demand/demanddetail.wxss */
-
-.weui-article__h1{
-  display: table;
-  width: 100%;
-}
-.article_title_item{
-  display: table-cell;
-}
-
-.article_title_img{
-  width: 40px;
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
-}
-
-.article_title_img image{
-  width: 32px;
-  height: 32px;
+.user_linke {
+  float:right;
+  font-size:16px;
+  margin-top:-5px;
 }

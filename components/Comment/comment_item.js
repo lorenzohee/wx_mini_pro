@@ -10,6 +10,9 @@ Component({
       type: Object
     }
   },
+  options: {
+    styleIsolation: 'shared'
+  },
 
   /**
    * Component initial data
@@ -39,13 +42,11 @@ Component({
   methods: {
     showCommentForm: function(e){
       var that = this;
-      var replyId = e.currentTarget.dataset.replyuserid;
       var replyCommentId = e.currentTarget.dataset.replycomment;
       this.triggerEvent("childCommentReply")
       return false;
       var nodes = this.getRelationNodes('./comment')
       nodes[0].setData({
-        replyId: replyId,
         replyCommentId: replyCommentId,
         isFormShow: true
       })

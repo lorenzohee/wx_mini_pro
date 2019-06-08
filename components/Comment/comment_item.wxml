@@ -1,27 +1,27 @@
 <!--components/Comment/comment_item.wxml-->
 <import src="../../vendor/wxParse/wxParse.wxml"/>
-<view class='comment_item'>
-      <view class='comment_avatar'>
-        <image src='{{comment.avatar_url}}'></image>
+<view class="cu-list menu-avatar comment solids-top">
+  <view class="cu-item">
+    <view class="cu-avatar round" style="background-image:url({{comment.avatar_url}});"></view>
+    <view class="content">
+      <view class="text-grey">
+        {{comment.user_name}}
       </view>
-      <view class='comment_item_content'>
-        <view class='comment_top'>
-          <text class='user_name'>{{comment.user_name}}</text>
-          <view><text class='reply frm' catchtap='showCommentForm'>回复</text></view>
-        </view>
-        <view class='comment_bottom'>
-          <template is="wxParse" data="{{wxParseData:content.nodes}}"/>
-        </view>
-        <view class='comment_item' wx:for='{{comment.child}}' wx:key='id'>
-          <view class='comment_avatar'>
-            <image src='{{item.avatar_url}}'></image>
-          </view>
-          <view class='comment_item_content'>
-            <view class='comment_top'>
-              <text class='user_name'>{{item.user_name}}</text>
-            </view>
-            <view class='comment_bottom'>{{item.body}}</view>
-          </view>
+      <view class="text-gray text-content text-df margin-top-sm">
+        <text>{{comment.message}}</text>
+      </view>
+      <view class="margin-top-sm flex justify-between">
+        <view class="text-gray text-df">{{comment.created_at}}</view>
+        <view class='frm'>
+          <text class="cuIcon-messagefill margin-left-sm text-gray" data-replycomment="{{comment.id}}" catchtap='showCommentForm'> 回复</text>
         </view>
       </view>
+      <view class="bg-grey padding-sm radius margin-top-sm  text-sm" wx:for='{{comment.comments}}' wx:key='{{item.id}}'>
+        <view class="flex">
+          <view>{{item.user_name}}：</view>
+          <view class="flex-sub"><text>{{item.message}}</text></view>
+        </view>
+      </view>
+    </view>
+  </view>
 </view>

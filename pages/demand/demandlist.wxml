@@ -1,16 +1,59 @@
 <!--pages/demand/demandlist.wxml-->
-<view class='page'>
-  <view wx:for='{{demands}}' wx:key='id' class='touch-item {{item.isTouchMove ? "touch-move-active" : ""}}' data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove">
-    <view class='content index_item'>
-      <view class='item_status'>
-        <image src='{{ item.user_avatar }}'></image>
-      </view>
-      <navigator url='./demanddetail?id={{item.id}}' class='item_title'>{{item.title}}</navigator>
-      <view class='item_favore'>
-        <image src='../../assets/images/star.png' wx:if='{{!item.isFavorite}}' bindtap='starDemand' data-demandid="{{item.id}}"></image>
-        <image src='../../assets/images/star_selected.png' wx:if='{{item.isFavorite}}' bindtap='unstarDemand' data-demandid="{{item.id}}"></image>
+<cu-custom bgColor="bg-gradual-blue">
+  <view slot="content">需求列表</view>
+</cu-custom>
+<view class="box">
+  <view class="cu-bar tabbar bg-white">
+    <view class="action">
+      <view class="{{ searchStr==='' ? 'text-green' : 'text-gray' }} text-lg" bindtap="searchDemand" data-searchtype='' >全部 ▼</view>
+    </view>
+    <view class="action">
+      <view class="{{ searchStr==='favorite' ? 'text-green' : 'text-gray' }} text-lg" bindtap="searchDemand" data-searchtype="favorite" >我的收藏 ▼</view>
+    </view>
+    <view class="action">
+      <view class="{{ searchStr==='filter' ? 'text-green' : 'text-gray' }} text-lg" bindtap="searchDemand" data-searchtype="filter" >筛选 ▼</view>
+    </view>
+  </view>
+  <view class="cu-bar search bg-white " wx:if="{{ searchStr==='filter'}}">
+    <view class="search-form round">
+      <text class="cuIcon-search"></text>
+      <input type="text" placeholder="搜索图片、文章、视频" confirm-type="search"></input>
+    </view>
+    <view class="action">
+      <button class="cu-btn bg-green shadow-blur round">搜索</button>
+    </view>
+  </view>
+</view>
+<view class="cu-card article no-card margin-top" wx:for='{{demands}}' wx:key='{{item.id}}' data-index="{{index}}">
+  <view class="cu-item shadow">
+    <view class="cu-list menu-avatar">
+      <view class="cu-item">
+        <view class="cu-avatar round lg" style="background-image:url({{ item.user_avatar }});"></view>
+        <view class="content flex-sub" style='display: block'>
+          <view>{{item.user_name}}</view>
+          <view class="text-gray text-sm flex justify-between">
+            {{item.created_at}}
+          </view>
+        </view>
       </view>
     </view>
-    <view class="del" catchtap="del" data-index="{{index}}">删除</view>
+    <navigator url='./demanddetail?id={{item.id}}' class='item_title'>
+      <view class="title">
+        <view class="text-cut">{{item.title}}</view>
+      </view>
+      <view class="content">
+        <view class="desc">
+          <view class="text-content">{{item.brief}}</view>
+          <view class='margin-top'>
+            <view class="cu-tag bg-red light sm round" wx:for='{{item.tag_list}}' wx:key='{{item}}'>{{item}}</view>
+          </view>
+        </view>
+      </view>
+    </navigator>
+    <view class="text-gray text-sm text-right padding">
+      <text class="cuIcon-attentionfill margin-lr-xs"></text> {{item.impressionist_count}}
+      <text class="cuIcon-likefill margin-lr-xs"></text> {{item.favorites_count}}
+      <text class="cuIcon-messagefill margin-lr-xs"></text> {{item.comments.length}}
+    </view>
   </view>
 </view>
