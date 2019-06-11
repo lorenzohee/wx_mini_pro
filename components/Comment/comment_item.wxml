@@ -16,7 +16,7 @@
           <text class="cuIcon-messagefill margin-left-sm text-gray" data-replycomment="{{comment.id}}" catchtap='showCommentForm'> 回复</text>
         </view>
       </view>
-      <view class="bg-grey padding-sm radius margin-top-sm  text-sm" wx:for='{{comment.comments}}' wx:key='{{item.id}}'>
+      <view class="bg-gray padding-sm radius margin-top-sm  text-sm" wx:for='{{comment.comments}}' wx:key='{{item.id}}'>
         <view class="flex">
           <view>{{item.user_name}}：</view>
           <view class="flex-sub"><text>{{item.message}}</text></view>
