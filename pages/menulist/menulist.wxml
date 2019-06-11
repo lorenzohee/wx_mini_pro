@@ -1,0 +1,71 @@
+<!--pages/demand/demandlist.wxml-->
+<cu-custom bgColor="bg-gradual-blue">
+  <view slot="content">功能菜单</view>
+</cu-custom>
+
+<view class="cu-list grid col-3 no-border">
+  <view class="cu-item">
+    <view class="cuIcon-choicenessfill text-blue"></view>
+    <text>加速器</text>
+  </view>
+  <view class="cu-item">
+    <view class="cuIcon-creativefill text-cyan"></view>
+    <text>我的方案</text>
+  </view>
+  <view class="cu-item">
+    <view class="cuIcon-noticefill text-olive">
+      <view class="cu-tag badge" wx:if="{{item.badge!=0}}">
+        <block wx:if="{{item.badge!=1}}">82</block>
+      </view>
+    </view>
+    <text>我的消息</text>
+  </view>
+  <view class="cu-item">
+    <view class="cuIcon-clothesfill text-orange">
+      <view class="cu-tag badge" wx:if="{{item.badge!=0}}">
+        <block wx:if="{{item.badge!=1}}">12</block>
+      </view>
+    </view>
+    <text>其他</text>
+  </view>
+  <view class="cu-item">
+    <view class="cuIcon-clothesfill text-orange">
+      <view class="cu-tag badge" wx:if="{{item.badge!=0}}">
+        <block wx:if="{{item.badge!=1}}">12</block>
+      </view>
+    </view>
+    <text>其他</text>
+  </view>
+  <view class="cu-item">
+    <view class="cuIcon-clothesfill text-orange">
+      <view class="cu-tag badge" wx:if="{{item.badge!=0}}">
+        <block wx:if="{{item.badge!=1}}">12</block>
+      </view>
+    </view>
+    <text>其他</text>
+  </view>
+  <view class="cu-item">
+    <view class="cuIcon-clothesfill text-orange">
+      <view class="cu-tag badge" wx:if="{{item.badge!=0}}">
+        <block wx:if="{{item.badge!=1}}">12</block>
+      </view>
+    </view>
+    <text>其他</text>
+  </view>
+  <view class="cu-item">
+    <view class="cuIcon-clothesfill text-orange">
+      <view class="cu-tag badge" wx:if="{{item.badge!=0}}">
+        <block wx:if="{{item.badge!=1}}">12</block>
+      </view>
+    </view>
+    <text>其他</text>
+  </view>
+  <view class="cu-item">
+    <view class="cuIcon-clothesfill text-orange">
+      <view class="cu-tag badge" wx:if="{{item.badge!=0}}">
+        <block wx:if="{{item.badge!=1}}">12</block>
+      </view>
+    </view>
+    <text>其他</text>
+  </view>
+</view>
