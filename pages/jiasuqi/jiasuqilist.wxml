@@ -1,0 +1,85 @@
+<cu-custom bgColor="bg-gradual-blue">
+  <view slot="content">加速器</view>
+</cu-custom>
+<swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+  <swiper-item>
+    <image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg" mode="aspectFill"></image>
+  </swiper-item>
+  <swiper-item>
+    <image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big84001.jpg" mode="aspectFill"></image>
+  </swiper-item>
+  <swiper-item>
+    <image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg" mode="aspectFill"></image>
+  </swiper-item>
+  <swiper-item>
+    <image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg" mode="aspectFill"></image>
+  </swiper-item>
+  <swiper-item>
+    <image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big99008.jpg" mode="aspectFill"></image>
+  </swiper-item>
+</swiper>
+
+<view class='margin-top'>
+  <view class="cu-card case no-card">
+    <view class="cu-item shadow">
+      <view class="image" style='margin: 0'>
+        <image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg" mode="widthFix"></image>
+        <view class="cu-tag bg-blue">创新产品</view>
+        <view class="cu-bar bg-shadeBottom">
+          <text class="text-cut">【创新产品】果蔬净化器 </text>
+        </view>
+      </view>
+      <view class="text-content image">
+        光触媒模组用光触媒材料仅在其表面进行触媒反应，其本身不会发生变化和损耗，故使用寿命长，做到无耗材净化模组的功效。
+      </view>
+    </view>
+  </view>
+</view>
+<view class='margin-top'>
+  <view class="cu-card case no-card">
+    <view class="cu-item shadow">
+      <view class="image" style='margin: 0'>
+        <image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg" mode="widthFix"></image>
+        <view class="cu-tag bg-blue">创新产品</view>
+        <view class="cu-bar bg-shadeBottom">
+          <text class="text-cut">【创新产品】果蔬净化器 </text>
+        </view>
+      </view>
+      <view class="text-content image">
+        光触媒模组用光触媒材料仅在其表面进行触媒反应，其本身不会发生变化和损耗，故使用寿命长，做到无耗材净化模组的功效。
+      </view>
+    </view>
+  </view>
+</view>
+<view class='margin-top'>
+  <view class="cu-card case no-card">
+    <view class="cu-item shadow">
+      <view class="image" style='margin: 0'>
+        <image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg" mode="widthFix"></image>
+        <view class="cu-tag bg-blue">创新产品</view>
+        <view class="cu-bar bg-shadeBottom">
+          <text class="text-cut">【创新产品】果蔬净化器 </text>
+        </view>
+      </view>
+      <view class="text-content image">
+        光触媒模组用光触媒材料仅在其表面进行触媒反应，其本身不会发生变化和损耗，故使用寿命长，做到无耗材净化模组的功效。
+      </view>
+    </view>
+  </view>
+</view>
+<view class='margin-top'>
+  <view class="cu-card case no-card">
+    <view class="cu-item shadow">
+      <view class="image" style='margin: 0'>
+        <image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg" mode="widthFix"></image>
+        <view class="cu-tag bg-blue">创新产品</view>
+        <view class="cu-bar bg-shadeBottom">
+          <text class="text-cut">【创新产品】果蔬净化器 </text>
+        </view>
+      </view>
+      <view class="text-content image">
+        光触媒模组用光触媒材料仅在其表面进行触媒反应，其本身不会发生变化和损耗，故使用寿命长，做到无耗材净化模组的功效。
+      </view>
+    </view>
+  </view>
+</view>

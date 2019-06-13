@@ -8,7 +8,9 @@
     "pages/myinfo/info_nickname",
     "pages/myinfo/info_tag",
     "pages/menulist/menulist",
-    "pages/menulist"
+    "pages/activity/activity",
+    "pages/jiasuqi/jiasuqi",
+    "pages/jiasuqi/jiasuqilist"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -33,22 +35,22 @@
         "selectedIconPath": "./assets/images/app_selected.png"
       },
       {
-        "pagePath": "pages/demand/demandlist",
+        "pagePath": "pages/activity/activity",
         "text": "活动",
         "iconPath": "./assets/images/activity.png",
         "selectedIconPath": "./assets/images/activity_selected.png"
       },
       {
-        "pagePath": "pages/myinfo/personinfo",
-        "text": "个人信息",
-        "iconPath": "./assets/images/my.png",
-        "selectedIconPath": "./assets/images/my_selected.png"
+        "pagePath": "pages/jiasuqi/jiasuqilist",
+        "text": "加速器",
+        "iconPath": "./assets/images/jiasuqi.png",
+        "selectedIconPath": "./assets/images/jiasuqi_selected.png"
       },
       {
-        "pagePath": "pages/menulist/menulist",
-        "text": "其他",
-        "iconPath": "./assets/images/more.png",
-        "selectedIconPath": "./assets/images/more_selected.png"
+        "pagePath": "pages/myinfo/personinfo",
+        "text": "我的",
+        "iconPath": "./assets/images/my.png",
+        "selectedIconPath": "./assets/images/my_selected.png"
       }
     ]
   },

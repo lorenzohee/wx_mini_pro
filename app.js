@@ -3,7 +3,7 @@ var qcloud = require('./vendor/wafer2-client-sdk/index')
 var config = require('./config')
 App({
   onLaunch: function () {
-    qcloud.setLoginUrl('http://hope.haier.com/hope_sso/wx_gate/code2session.json')
+    qcloud.setLoginUrl('https://hope.haier.com/hope_sso/wx_gate/code2session.json')
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -19,6 +19,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    backUrl: ''
   }
 })

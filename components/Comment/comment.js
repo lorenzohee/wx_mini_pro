@@ -81,7 +81,7 @@ Component({
     formSubmit: function (e) {
       var that = this;
       var formData = e.detail.value;
-      if(formData.content==''){
+      if (formData.content == '' || formData.content == undefined){
         wx.showToast({
           title: '请填写留言内容',
           icon: 'none',
@@ -107,6 +107,7 @@ Component({
         that.setData({
           comments: that.data.comments
         })
+        e.detail.value.content=''
         that.hideDialog()
       })
     },

@@ -1,31 +1,18 @@
-// pages/myinfo/personinfo.js
-var qcloud = require('../../vendor/wafer2-client-sdk/index')
-var app = getApp();
+// pages/jiasuqi/jiasuqi.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    countries: ["male", "female"],
-    countryIndex: 0,
-    userInfo: null
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const token = qcloud.Session.get()
-    if (!token) {
-      app.globalData.backUrl = getCurrentPages()[0].route
-      wx.switchTab({
-        url: '/pages/index/index',
-      })
-      return false;
-    }
-    this.data.userInfo = app.globalData.userInfo;
-    this.setData(this.data)
+
   },
 
   /**
@@ -75,14 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-
-  bindCountryChange: function(e){
-    this.setData({
-      countryIndex: e.detail.value
-    })
-    wx.showToast({
-      title: 'change success',
-    })
   }
 })

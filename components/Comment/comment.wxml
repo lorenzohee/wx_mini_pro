@@ -20,7 +20,7 @@
         <button class="action text-blue" formType="reset">取消</button>
       </view>
       <view class="padding-xl">
-        <textarea name='content' class="weui-textarea" placeholder="请输入留言内容" style="height: 3.3em; text-align:left"></textarea>
+        <textarea id='content' name='content' class="weui-textarea" placeholder="请输入留言内容" style='text-align:left;' fixed='true'></textarea>
       </view>
     </form>
   </view>

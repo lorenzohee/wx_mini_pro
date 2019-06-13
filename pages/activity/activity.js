@@ -1,15 +1,14 @@
-// pages/myinfo/personinfo.js
+// pages/activity/activity.js
+import loginValid from '../../utils/util'
 var qcloud = require('../../vendor/wafer2-client-sdk/index')
-var app = getApp();
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    countries: ["male", "female"],
-    countryIndex: 0,
-    userInfo: null
+
   },
 
   /**
@@ -24,8 +23,6 @@ Page({
       })
       return false;
     }
-    this.data.userInfo = app.globalData.userInfo;
-    this.setData(this.data)
   },
 
   /**
@@ -75,14 +72,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-
-  bindCountryChange: function(e){
-    this.setData({
-      countryIndex: e.detail.value
-    })
-    wx.showToast({
-      title: 'change success',
-    })
   }
 })

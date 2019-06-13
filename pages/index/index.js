@@ -17,18 +17,27 @@ Page({
   },
   onLoad: function () {
     const session = qcloud.Session.get()
+    let backUrl = '/pages/demand/demandlist'
     if (session) {
       if (app.globalData.userInfo){
         util.showSuccess('登录成功')
+        if (app.globalData.backUrl!=''){
+          backUrl = app.globalData.backUrl
+          app.globalData.backUrl = ''
+        }
         wx.switchTab({
-          url: '../demand/demandlist',
+          url: backUrl,
         })
       }else {
         this.getCurrentUser(function (res) {
           app.globalData.userInfo = res
           util.showSuccess('登录成功')
+          if (app.globalData.backUrl!='') {
+            backUrl = app.globalData.backUrl
+            app.globalData.backUrl = ''
+          }
           wx.switchTab({
-            url: '../demand/demandlist',
+            url: backUrl,
           })
         })
       }
@@ -36,6 +45,7 @@ Page({
   },
   getUserInfo: function(e) {
     util.showBusy('正在登录')
+    let backUrl = '/pages/demand/demandlist'
     const session = qcloud.Session.get()
     // 首次登录
     qcloud.login({
@@ -44,8 +54,12 @@ Page({
         this.getCurrentUser(function(res){
           app.globalData.userInfo = res
           util.showSuccess('登录成功')
+          if (app.globalData.backUrl!='') {
+            backUrl = app.globalData.backUrl
+            app.globalData.backUrl = ''
+          }
           wx.switchTab({
-            url: '../demand/demandlist',
+            url: backUrl,
           })
         })
       },

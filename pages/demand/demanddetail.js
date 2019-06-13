@@ -1,6 +1,7 @@
 // client/pages/demand/demanddetail.js
 var DemandService = require('../../service/demandservice.js')
 var WxParse = require('../../vendor/wxParse/wxParse.js')
+var qcloud = require('../../vendor/wafer2-client-sdk/index')
 var app = getApp()
 Page({
 
@@ -13,6 +14,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    const token = qcloud.Session.get()
+    if (!token) {
+      app.globalData.backUrl = getCurrentPages()[0].route
+      wx.switchTab({
+        url: '/pages/index/index',
+      })
+      return false;
+    }
     this.setData({
       demand: {
         id: options.id

@@ -1,3 +1,6 @@
+var qcloud = require('../vendor/wafer2-client-sdk/index')
+const app = getApp()
+
 const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -39,4 +42,14 @@ var showModel = (title, content) => {
     })
 }
 
-module.exports = { formatTime, showBusy, showSuccess, showModel }
+var loginValid = ()=> {
+  const token = qcloud.Session.get()
+  if (!token) {
+    app.globalData.backUrl = getCurrentPages()[0].route
+    wx.switchTab({
+      url: '/pages/index/index',
+    })
+  }
+}
+
+module.exports = { formatTime, showBusy, showSuccess, showModel, loginValid }
