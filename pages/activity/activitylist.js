@@ -1,14 +1,15 @@
-// pages/activity/activity.js
-import loginValid from '../../utils/util'
+// pages/activity/activitylist.js
+var ActivityService = require('../../service/activityservice')
 var qcloud = require('../../vendor/wafer2-client-sdk/index')
-const app = getApp()
+var app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    pageNum: 1,
+    activities: []
   },
 
   /**
@@ -36,7 +37,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getActivityList();
   },
 
   /**
@@ -72,5 +73,25 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  getActivityList: function () {
+    var that = this;
+    var activityService = new ActivityService();
+    activityService.getActivityList(this.data.pageNum || 1, function (activityList) {
+      activityList.forEach(function (v, i) {
+        var date = new Date(v.start_at);
+        v.start_at = (date.getMonth() + 1) + '-' + date.getDate();
+      });
+      if (1 != that.data.pageNum) {
+        activityList = that.data.activities.concat(activityList)
+      }
+      that.setData({
+        activities: activityList
+      });
+      if ('function' == typeof (callback)) {
+        callback()
+      }
+    });
   }
 })

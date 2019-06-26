@@ -1,0 +1,40 @@
+<!--pages/activity/activitydetail.wxml-->
+<import src="../../vendor/wxParse/wxParse.wxml"/>
+<view class='cu-custom'>
+  <view class="cu-bar fixed bg-shadeTop" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <text class='cuIcon-back'></text> 返回
+    </navigator>
+    <view class='content' style='top:{{StatusBar}}px;'>{{activity.title}}</view>
+  </view>
+</view>
+<image src="{{activity.banner_url}}" mode='aspectFill'></image>
+
+<view class="bg-white padding-lr">
+  <view class='solid-bottom text-lg padding'>
+    <text class='text-black'>{{activity.title}}</text>
+  </view>
+  <view class='solid-bottom text-df padding'>
+    <template is="wxParse" data="{{wxParseData:content.nodes}}"/>
+  </view>
+  <view class="bg-white margin-top">
+    <view class="action text-center">
+      <block wx:if="{{ activity.participantState == 1 }}">
+        <view class='cu-btn bg-grey'>报名尚未开始，敬请期待</view>
+      </block>
+      <block wx:elif="{{ activity.participantState == 2 }}">
+        <view class='cu-btn bg-grey'>报名已结束，请关注我们其他活动</view>
+      </block>
+      <block wx:else>
+      <navigator url='./activityenlist?activity_id={{activity.id}}' class='cu-btn bg-green' wx:if="{{!activity.participant}}">我要报名</navigator>
+      <view class='cu-btn bg-grey' wx:if="{{activity.participant}}">您已报名</view>
+      </block>
+    </view>
+  </view>
+  <comment id="comment"
+    articleId='{{activity.id}}'
+    articleType='Activity'
+    comments='{{activity.comments}}'
+    bind:cancelEvent="_cancelEvent"  
+    bind:confirmEvent="_confirmEvent"></comment>
+</view>

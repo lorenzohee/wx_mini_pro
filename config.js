@@ -5,7 +5,7 @@
 // 此处主机域名修改成服务器的域名
 var host = 'https://hope.haier.com/hope_sso';
 
-var service_add = 'https://hope.haier.com/agent_web_test';
+var service_add = 'https://hope.haier.com/agent_web';
 
 var config = {
 

@@ -17,7 +17,7 @@ Page({
   },
   onLoad: function () {
     const session = qcloud.Session.get()
-    let backUrl = '/pages/demand/demandlist'
+    let backUrl = '/pages/activity/activitylist'
     if (session) {
       if (app.globalData.userInfo){
         util.showSuccess('登录成功')

@@ -9,6 +9,9 @@ Component({
     articleId: {
       type: Number
     },
+    articleType: {
+      type: String
+    },
     comments: {
       type: Array
     }
@@ -87,10 +90,10 @@ Component({
           icon: 'none',
           duration: 2000
         })
-        // return false
-        formData.content = '小程序测试专用'
+        return false
       }
       formData.articleId = this.data.articleId;
+      formData.articleType = this.data.articleType;
       formData.replyCommentId = this.data.replyCommentId;
       var commentService = new CommentService();
       commentService.createComment(formData, function(result){

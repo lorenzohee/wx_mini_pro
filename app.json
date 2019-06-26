@@ -8,9 +8,11 @@
     "pages/myinfo/info_nickname",
     "pages/myinfo/info_tag",
     "pages/menulist/menulist",
-    "pages/activity/activity",
     "pages/jiasuqi/jiasuqi",
-    "pages/jiasuqi/jiasuqilist"
+    "pages/jiasuqi/jiasuqilist",
+    "pages/activity/activitylist",
+    "pages/activity/activitydetail",
+    "pages/activity/activityenlist"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -35,7 +37,7 @@
         "selectedIconPath": "./assets/images/app_selected.png"
       },
       {
-        "pagePath": "pages/activity/activity",
+        "pagePath": "pages/activity/activitylist",
         "text": "活动",
         "iconPath": "./assets/images/activity.png",
         "selectedIconPath": "./assets/images/activity_selected.png"

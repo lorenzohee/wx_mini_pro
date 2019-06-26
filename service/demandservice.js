@@ -2,7 +2,7 @@
 import { showSuccess, showModel} from '../utils/util.js'
 import { service } from '../config.js'
 var qcloud = require('../vendor/wafer2-client-sdk/index')
-class Demand{
+class DemandService{
   constructor(){
     this.app = getApp()
     this.host = service.service_add
@@ -31,23 +31,24 @@ class Demand{
   }
 
   getDemandFavorite(pageNum, callback){
-    var result = [];
-    if (pageNum == 1) {
-      result = [
-        { id: 3, title: '2018 海尔HOPE 创新方案大赛', isFavorite: true },
-        { id: 4, title: '【活动】传感器产业联盟中国制造业助力论坛（徐州站）', isFavorite: true },
-        { id: 6, title: '● 寻找研究化妆品存储的专家 ', isFavorite: true },
-        { id: 7, title: '寻找能够测定木材防霉涂层寿命的专家', isFavorite: true }
-      ];
-    } else {
-      result = [
-        { id: 14, title: '【活动】传感器产业联盟中国制造业助力论坛（徐州站）', isFavorite: true },
-        { id: 16, title: '● 寻找研究化妆品存储的专家 ', isFavorite: true },
-      ];
-    }
-    if ('function' === typeof (callback)) {
-      callback(result)
-    }
+    wx.request({
+      header: {
+        'Authorization': this.token
+      },
+      url: this.host + '/api/v1/demands/my_favorites',
+      success: (result)=>{
+        if(result.statusCode==200 || result.statusCode==201) {
+          if ('function' === typeof(callback)) {
+            callback(result.data)
+          }
+        }else {
+          wx.showModal('get failure', 'internet error')
+        }
+      },
+      fail: (e)=>{
+        showModel('get Failure', 'system error')
+      }
+    })
   }
 
   starDemand(demandid, callback) {
@@ -130,4 +131,4 @@ class Demand{
   }
 }
 
-module.exports = Demand
+module.exports = DemandService

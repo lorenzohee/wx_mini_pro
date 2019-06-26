@@ -13,7 +13,7 @@ class Comment{
     var postData = {
       message: obj.content,
       commentable_id: obj.articleId,
-      commentable_type: 'Demand',
+      commentable_type: obj.articleType,
       parent_id: obj.replyCommentId
     }
     wx.request({

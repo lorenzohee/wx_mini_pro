@@ -1,0 +1,15 @@
+<cu-custom bgColor="bg-gradual-blue">
+  <view slot="content">活动</view>
+</cu-custom>
+
+<view class="cu-timeline">
+  <block wx:for="{{activities}}" wx:key='{{item.id}}' data-index="{{index}}" >
+    <view class="cu-time">{{item.start_at}}</view>
+    <navigator url='./activitydetail?id={{item.id}}' class='cu-item'>
+      <view class="content">
+        <text class="text-lg text-black text-bold">{{item.title}}</text>
+        <view class="margin-top">{{item.brief}}</view>
+      </view>
+    </navigator>
+  </block>
+</view>

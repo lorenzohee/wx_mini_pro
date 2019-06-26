@@ -20,6 +20,7 @@
   </view>
   <comment id="comment"
     articleId='{{demand.id}}'
+    articleType='Demand'
     comments='{{demand.comments}}'
     bind:cancelEvent="_cancelEvent"  
     bind:confirmEvent="_confirmEvent"></comment>
